@@ -1,0 +1,13 @@
+class Solution {
+    public int lengthOfLastWord(String s) {
+        if (s == null) {
+            return 0;
+        }
+        /**
+         * 字符串去掉两边空格
+         * 最后一个单词的长度 = 字符串总长度 - 最后一个空格的下标为止的字符串长度（最后一个空格下标 + 1)
+         * 当字符串中只包含空格时，去掉量表空格的字符串长度的=0，去掉两边空格后的最后一个空格下标为-1，故而结果为0满足要求。
+        */
+        return s.trim().length() - s.trim().lastIndexOf(" ") - 1;
+    }
+}
