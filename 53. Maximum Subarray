@@ -1,0 +1,15 @@
+class Solution {
+    public int maxSubArray(int[] nums) {
+        int nowMax = nums[0];
+        int allMax = nums[0];
+        
+        for (int i=1;i<nums.length;i++) {
+            // 如果找到一个数，当前所有加算对象之和（包括这个数）小于这个数，则舍弃之前的计算结果，从这个数开始重新计算和
+            nowMax = Math.max(nowMax + nums[i], nums[i]);
+            // 整个循环的计算过程中，会计算出很多个候选和，从中找出最大的一个
+            nowMax= Math.max(allMax, nowMax);
+        }
+        
+        return allMax;
+    }
+}
