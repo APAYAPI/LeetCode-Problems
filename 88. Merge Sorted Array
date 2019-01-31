@@ -1,0 +1,13 @@
+class Solution {
+    public void merge(int[] nums1, int m, int[] nums2, int n) {
+        int i = m -1, j = n - 1, k = m + n -1;
+        // 将数组1和数组2的有效位最后一位进行比较，更大的存入数组1的最后一位
+        while (i >= 0 && j >= 0) {
+            nums1[k--] = nums1[i] > nums2[j] ? nums1[i--] : nums2[j--];  
+        }
+        // 如果数组2的数更小（此时数组1的数已存入应存位置），将数组二的数依次存入数组1
+        while (j >= 0) {
+            nums1[k--] = nums2[j--];
+        }
+    }
+}
