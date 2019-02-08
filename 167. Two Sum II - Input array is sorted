@@ -1,0 +1,15 @@
+class Solution {
+    public int[] twoSum(int[] numbers, int target) {
+        int left = 0, right = numbers.length - 1;
+        while (numbers[left] + numbers[right] != target) {
+            // 左端是全数组最小的数，故先对右端进行操作，找到一个和最左端相加不会超过目标值的右端位置，如果左右端相加等于目标值直接返回
+            if (numbers[left] + numbers[right] > target) {
+                right--;
+            } else {
+                // 相反如果和小于目标，则对左端操作，逐步增大左端数的大小，知道夹逼出最终结果
+                left++;
+            }
+        }
+        return new int[]{left + 1, right + 1};
+    }
+}
