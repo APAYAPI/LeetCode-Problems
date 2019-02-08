@@ -1,0 +1,22 @@
+/**
+* 目标元素在数组中出现的次数大于数组元素个数的一半，将下面的计算简单的理解为：如果是目标元素count就加一，不是就减一
+* 那么count最后一定是大于零的，因为加的次数比减的次数多
+* 所以遍历整个数组之后，major变量中保留的必然是出现次数最多的那个数
+**/
+class Solution {
+    public int majorityElement(int[] nums) {
+        int major = nums[0], count = 1;
+        for (int i = 1;i <nums.length; i++) {
+            if (count == 0) {
+                count++;
+                major = nums[i];
+            } else if (major == nums[i]) {
+                count++;
+            } else {
+                count--;
+            }
+        }
+        
+        return major;
+    }
+}
