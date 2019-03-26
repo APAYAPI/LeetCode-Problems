@@ -1,7 +1,0 @@
-select t1.way1, t1.way2, t2.way_name, t3.way_name from A t1
-left join
-B t2
-on t1.way1 = t2.way_no
-left join
-B t3
-on t1.way2 = t3.way_no
