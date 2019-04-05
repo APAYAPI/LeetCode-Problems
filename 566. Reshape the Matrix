@@ -1,0 +1,13 @@
+// 矩阵当中，下标=[总数/长][总数%长]
+class Solution {
+    public int[][] matrixReshape(int[][] nums, int r, int c) {
+        int i = nums.length, j = nums[0].length;
+        if (i * j != r * c) return nums;
+        int[][] result = new int[r][c];
+        for (int k=0;k<r*c;k++) {
+            result[k/c][k%c] = nums[k/j][k%j];
+        }
+        
+        return result;
+    }
+}
