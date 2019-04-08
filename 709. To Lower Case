@@ -1,0 +1,13 @@
+class Solution {
+    public String toLowerCase(String str) {
+        StringBuilder sb = new StringBuilder();
+        
+        for (char c : str.toCharArray()) {
+            int asc = (int) c;
+            if (asc >= 65 && asc <=90) c = (char) (asc + 32);
+            sb.append(String.valueOf(String.valueOf(c)));
+        }
+                      
+        return sb.toString();
+    }
+}
