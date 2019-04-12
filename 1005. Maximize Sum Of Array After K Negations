@@ -1,0 +1,13 @@
+class Solution {
+    public int largestSumAfterKNegations(int[] A, int K) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        for (int a : A) queue.add(a);
+        while (K-- > 0) queue.add(-queue.poll());
+        int sum = 0;
+        while (!queue.isEmpty()) {
+            sum += queue.poll();
+        }
+        
+        return sum;
+    }
+}
